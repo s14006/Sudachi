@@ -1,0 +1,85 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.page-content {
+	margin: 10px;
+	padding: 10px;
+}
+
+.item-menu {
+	border: 1px solid #ccc;
+}
+
+#itemlist {
+	list-style-type: none;
+	padding: 0;
+}
+
+.items {
+	display: none;
+	margin: 10px;
+}
+
+.mdl-card {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+/*  booth  */
+
+#booth {
+	border: 1px solid #f55;
+}
+
+.booth-menu {
+	height: 0px;
+	margin-left: auto;
+	width: 100px;
+	z-index: 5;
+}
+
+.booth-menu > ul {
+	list-style-type: none;
+}
+
+.button-camera {
+	margin-right: 10px;
+	margin-top: 10px;
+} 
+
+/* modal */
+
+#modal {
+	display: none;
+	margin: 100px auto 0;
+	position: absolute;
+	
+	width: 100%;
+	z-index: 3;
+}
+
+.modal-center {
+	background-color: #FFF;
+	border-radius: 5px;
+	margin: 0px auto;
+	width: 80%;
+}
+
+.modal-content {
+	border: solid 1px #0F0;
+}
+
+form {
+	display: inline-block;
+}
+
+.input {
+	margin: 10px;
+}
+
+.btn {
+	margin: 10px;
+}

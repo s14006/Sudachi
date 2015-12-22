@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>Sudachi</title>
+	
+	<!-- MDL -->
+	<script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+	<link rel="stylesheet" href="stylesheets/material.min.css"> 
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+	<!-- jQuery -->
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+	<link rel="stylesheet" href="./stylesheets/style.css">
+	<!--<script type="text/javascript" src="js/three/three.min.js"></script>-->
+	<script type="text/javascript" src="javascripts/main.js"></script>
+	<script type="text/javascript" src="javascripts/ItemLists.js"></script>
+</head>
+<body>
+
+	<!-- Modal -->
+	<div id="modal">
+		<div class="mdl-grid modal-center mdl-shadow--6dp">
+			
+			<div class="mdl-cell mdl-cell--6-col mdl-cell--6-col-tablet modal-content">
+				<form action="#">
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label input">
+						<input class="mdl-textfield__input" type="text" id="name" />
+						<label class="mdl-textfield__label" for="name">name</label>
+					</div>
+					
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label input">
+					       <input class="mdl-textfield__input" type="text" id="category" />
+					       <label class="mdl-textfield__label" for="category">category</label>
+					</div>
+
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label input">
+						<select class="mdl-textfield__input" name="size" id="itemsize">
+							<option value=""></option>
+							<option value="100">100*100*100</option>
+							<option value="200">200*200*200</option>
+							<option value="">Customだけどまだ使えないよ</option>
+						</select>
+						<label class="mdl-textfield__label" for="itemsize">size</label>
+					</div>
+
+				</form>
+			</div>
+
+			<div class="mdl-cell mdl-cell--6-col mdl-cell--6-tablet modal-content">
+
+				<div class="mal-grid">
+					<canvas class="mdl-cell mdl-cell--12-col"></canvas>
+
+					<div class="mdl-cell mdl-cell--6-col">
+						<div class="auau">
+							<button class="mdl-button mdl-js-button mdl-js-ripple-effect btn" id="cancel">Cancel</button>
+							<button class="mdl-button mdl-js-button mdl-js-ripple-effect  mdl-button--accent btn" id="listAdd">Save</button>
+						</div>
+						
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Always shows a header, even in smaller screens. -->
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+		<header class="mdl-layout__header" id="header">
+			<div class="mdl-layout__header-row">
+			<!-- Title -->
+			<span class="mdl-layout-title">Sudachi</span>
+			<!-- Add spacer, to align navigation to the right -->
+			<div class="mdl-layout-spacer"></div>
+			<!-- Navigation. We hide it in small screens. -->
+			<nav class="mdl-navigation mdl-layout--large-screen-only">
+			<a class="mdl-navigation__link" href="">Home</a>
+			<a class="mdl-navigation__link" href="">Link</a>
+			<a class="mdl-navigation__link" href="">Link</a>
+			<a class="mdl-navigation__link" href="">Link</a>
+			</nav>
+			</div>
+		</header>
+
+		<div class="mdl-layout__drawer">
+			<span class="mdl-layout-title">Title</span>
+			<nav class="mdl-navigation">
+			<a class="mdl-navigation__link" href="">Link</a>
+			<a class="mdl-navigation__link" href="">Link</a>
+			<a class="mdl-navigation__link" href="">Link</a>
+			<a class="mdl-navigation__link" href="">Link</a>
+			</nav>
+		</div>
+		
+		<main class="mdl-layout__content">
+		    	<div class="page-content mdl-grid"> <!-- clearfix -->
+		    	<!-- main -->
+		    		<div class="item-menu mdl-cell mdl-cell--3-col">
+					<ul id="itemlist">
+
+						<li class="items" id="item-0">
+							<div class="mdl-card mdl-shadow--2dp">
+								<div class="mdl-card__title mdl-card__title">
+									<h2 class="mdl-card__title-text" id="i-name0">item1</h2>
+								</div>
+								<div class="mdl-card__supporting-text" id="category0"></div>
+								<div class="mdl-card__supporting-text" id="size0"></div>
+								<div class="mdl-card__actions mdl-card--border">
+									<button class="mdl-button mdl-jsbutton" id="menu0">menu</button>
+									<ul class="mdl-menu mdl-menu--top-left mdl-js-menu" for="menu0">
+										<li class="mdl-menu__item i-add" id="i-add0">addbooth</li>
+										<li class="mdl-menu__item i-edit">edit</li>
+										<li class="mdl-menu__item i-delete">delete</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+
+						<li class="items" id="item-1">
+							<div class="mdl-card mdl-shadow--2dp">
+								<div class="mdl-card__title mdl-card__title">
+									<h2 class="mdl-card__title-text" id="i-name1">item2</h2>
+								</div>
+								<div class="mdl-card__supporting-text" id="category1">
+									auau
+								</div>
+								<div class="mdl-card__actions mdl-card--border">
+									<button class="mdl-button mdl-jsbutton" id="menu1">menu</button>
+									<ul class="mdl-menu mdl-menu--top-left mdl-js-menu" for="menu1">
+										<li class="mdl-menu__item i-add" id="i-add1">addbooth</li>
+										<li class="mdl-menu__item i-edit" id="i-edit1">edit</li>
+										<li class="mdl-menu__item i-delete" id="i-delete0">delete</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+
+						<li class="items" id="item-2">
+							<div class="mdl-card mdl-shadow--2dp">
+								<div class="mdl-card__title mdl-card__title">
+									<h2 class="mdl-card__title-text" id="i-name2">item3</h2>
+								</div>
+								<div class="mdl-card__supporting-text" id="category2">
+									auau
+								</div>
+								<div class="mdl-card__actions mdl-card--border">
+									<button class="mdl-button mdl-jsbutton" id="menu3">menu</button>
+									<ul class="mdl-menu mdl-menu--top-left mdl-js-menu" for="menu2">
+										<li class="mdl-menu__item i-add" id="i-add2">addbooth</li>
+										<li class="mdl-menu__item i-edit" id="i-edit2">edit</li>
+										<li class="mdl-menu__item idelete" id="i-delete2">delete</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+
+						<li class="items" id="item-3">
+							<div class="mdl-card mdl-shadow--2dp">
+								<div class="mdl-card__title mdl-card__title">
+									<h2 class="mdl-card__title-text" id="i-name3">item4</h2>
+								</div>
+								<div class="mdl-card__supporting-text" id="category3">
+									auau
+								</div>
+								<div class="mdl-card__actions mdl-card--border">
+									<button class="mdl-button mdl-jsbutton" id="menu3">menu</button>
+									<ul class="mdl-menu mdl-menu--top-left mdl-js-menu" for="menu3">
+										<li class="mdl-menu__item i-add" id="i-add3">addbooth</li>
+										<li class="mdl-menu__item i-edit" id="i-edit3">edit</li>
+										<li class="mdl-menu__item idelete" id="i-delete3">delete</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+
+						<li class="items" id="item-4">
+							<div class="mdl-card mdl-shadow--2dp">
+								<div class="mdl-card__title mdl-card__title">
+									<h2 class="mdl-card__title-text" id="i-name4">item5</h2>
+								</div>
+								<div class="mdl-card__supporting-text" id="category4">
+									auau
+								</div>
+								<div class="mdl-card__actions mdl-card--border">
+									<button class="mdl-button mdl-jsbutton" id="menu4">menu</button>
+									<ul class="mdl-menu mdl-menu--top-left mdl-js-menu" for="menu4">
+										<li class="mdl-menu__item i-add" id="i-add4">addbooth</li>
+										<li class="mdl-menu__item i-edit" id="i-edit4">edit</li>
+										<li class="mdl-menu__item idelete" id="i-delete4">delete</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+
+						<li class="items" id="item-5">
+							<div class="mdl-card mdl-shadow--2dp">
+								<div class="mdl-card__title mdl-card__title">
+									<h2 class="mdl-card__title-text" id="i-name5">item6</h2>
+								</div>
+								<div class="mdl-card__supporting-text" id="category5">
+									auau
+								</div>
+								<div class="mdl-card__actions mdl-card--border">
+									<button class="mdl-button mdl-jsbutton" id="menu5">menu</button>
+									<ul class="mdl-menu mdl-menu--top-left mdl-js-menu" for="menu5">
+										<li class="mdl-menu__item i-add" id="i-add5">addbooth</li>
+										<li class="mdl-menu__item i-edit" id="i-edit5">edit</li>
+										<li class="mdl-menu__item idelete" id="i-delete5">delete</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+
+						<li class="items" id="item-6">
+							<div class="mdl-card mdl-shadow--2dp">
+								<div class="mdl-card__title mdl-card__title">
+									<h2 class="mdl-card__title-text" id="i-name6">item7</h2>
+								</div>
+								<div class="mdl-card__supporting-text" id="category6">
+									auau
+								</div>
+								<div class="mdl-card__actions mdl-card--border">
+									<button class="mdl-button mdl-jsbutton" id="menu6">menu</button>
+									<ul class="mdl-menu mdl-menu--top-left mdl-js-menu" for="menu6">
+										<li class="mdl-menu__item i-add" id="i-add6">addbooth</li>
+										<li class="mdl-menu__item i-edit" id="i-edit6">edit</li>
+										<li class="mdl-menu__item idelete" id="i-delete6">delete</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+
+						<li class="items" id="item-7">
+							<div class="mdl-card mdl-shadow--2dp">
+								<div class="mdl-card__title mdl-card__title">
+									<h2 class="mdl-card__title-text" id="i-name7">item8</h2>
+								</div>
+								<div class="mdl-card__supporting-text" id="category7">
+									auau
+								</div>
+								<div class="mdl-card__actions mdl-card--border">
+									<button class="mdl-button mdl-jsbutton" id="menu7">menu</button>
+									<ul class="mdl-menu mdl-menu--top-left mdl-js-menu" for="menu7">
+										<li class="mdl-menu__item i-add" id="i-add7">addbooth</li>
+										<li class="mdl-menu__item i-edit" id="i-edit7">edit</li>
+										<li class="mdl-menu__item" id='i-delete7'>delete</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+
+						<li class="items" id="item-8">
+							<div class="mdl-card mdl-shadow--2dp">
+								<div class="mdl-card__title mdl-card__title">
+									<h2 class="mdl-card__title-text" id="i-name8">item9</h2>
+								</div>
+								<div class="mdl-card__supporting-text" id="category8">
+									auau
+								</div>
+								<div class="mdl-card__actions mdl-card--border">
+									<button class="mdl-button mdl-jsbutton" id="menu8">menu</button>
+									<ul class="mdl-menu mdl-menu--top-left mdl-js-menu" for="menu8">
+										<li class="mdl-menu__item i-add" id="i-add8">addbooth</li>
+										<li class="mdl-menu__item i-edit" id="i-edit8">edit</li>
+										<li class="mdl-menu__item idelete" id="i-delete8">delete</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+
+						<li class="items" id="item-9">
+							<div class="mdl-card mdl-shadow--2dp">
+								<div class="mdl-card__title mdl-card__title">
+									<h2 class="mdl-card__title-text" id="i-name9">item10</h2>
+								</div>
+								<div class="mdl-card__supporting-text" id="category9">
+									auau
+								</div>
+								<div class="mdl-card__actions mdl-card--border">
+									<button class="mdl-button mdl-js-button" id="menu9">menu</button>
+									<ul class="mdl-menu mdl-menu--top-left mdl-js-menu" for="menu9">
+										<li class="mdl-menu__item i-add" id="i-add9">addbooth</li>
+										<li class="mdl-menu__item i-edit" id="i-edit9">edit</li>
+										<li class="mdl-menu__item idelete" id="i-delete9">delete</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+
+					</ul>
+		    			<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" id="itemadd">
+		    				<i class="material-icons">add</i>
+		    			</button>
+		    		</div>
+		    		<div class="booth-layout mdl-cell--9-col" id="booth">
+		    			<div class="booth-menu">
+		    				<ul>
+		    					<li>
+		    						<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent button-camera" id="2D">2D</button>
+		    					</li>
+		    					<li>
+		    						<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent button-camera" id="3D">3D</button>
+		    					</li>
+		    				</ul>
+		    			</div>
+		    		</div>
+				<script type="text/javascript" src="javascripts/three/three.min.js"></script>
+				<script type="text/javascript" src="javascripts/three/OrbitControls.js"></script>
+				<script type="text/javascript" src="javascripts/three/TransformControls.js"></script>
+				<script type="text/javascript" src="javascripts/Booth.js"></script>
+
+		    	</div>
+
+		</main>
+
+	</div>
+
+</body>
+</html>

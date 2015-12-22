@@ -1,0 +1,45 @@
+var i_id;
+
+$(window).load(function  () {
+
+	//modalの表示
+	$('#itemadd').click(function() {
+		if (count < 10) {
+			$('#modal').css('display','block');
+		};
+	});
+
+	//modalの非表示
+	$('#cancel').click(function() {
+		$('#modal').css('display','none');
+	});
+
+	//listにitemを追加
+	$('#listAdd').click(function() {
+		var name = $(':text[id="name"]').val();
+		var category = $(':text[id="category"]').val();
+		var size = parseInt($('select[name="size"]').val());
+		itemAdd(name, category, size);
+		$('#modal').css('display','none');
+	});
+
+
+	$('.i-add').click(function() {
+		i_id = parseInt($(this).attr('id').slice(-1));
+		addBooth(itemList[i_id]);
+	});
+
+	//listからitemを削除
+	/*$('#' + num).click(function() {
+		$('.items').css('display', 'none');
+	});
+	*/
+	//camera change
+	$('#2D').click(function() {
+		Change2D();
+	});
+
+	$('#3D').click(function() {
+		Change3D();
+	});
+});

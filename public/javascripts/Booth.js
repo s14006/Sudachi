@@ -1,14 +1,9 @@
 var width = $('#booth')[0].clientWidth,
-	height = $(window).height() - $('#header').height() - 42,  //44はmarginとborderを合わせた数
+	height = $(window).height() - $('#header').height() - 44,  //44はmarginとborderを合わせた数
 	near = 1,
-	far = 1000,
-	scene,
-	group,
-	renderer,
-	camera2D,
-	camera3D,
-	camera,
-	control;
+	far = 1000;
+	
+var scene, group, renderer, camera2D, camera3D, camera, control;
 
 function Field() {
 
@@ -17,12 +12,12 @@ function Field() {
 	light.position.set(0, 300, 50);
 	group.add(light);
 
-	var ambient = new THREE.AmbientLight( 0x550000 );	//環境光
+	var ambient = new THREE.AmbientLight( 0x555533 );	//環境光
 	group.add(ambient);
 
 	//mesh-plane
 	var pGeometry = new THREE.PlaneGeometry( 500, 500);
-	var pMaterial = new THREE.MeshLambertMaterial( { color: 0xcccccc , side: THREE.DoubleSide } );
+	var pMaterial = new THREE.MeshLambertMaterial( { color: 0xeeeeee , side: THREE.DoubleSide } );
 	var plane = new THREE.Mesh( pGeometry, pMaterial );
 	plane.position.set(0, 0, 0);
 	plane.rotation.x = 90 * Math.PI / 180;
@@ -34,6 +29,27 @@ function Field() {
 	var table = new THREE.Mesh( tGeometry, tMaterial);
 	table.position.set( 0, 100, 0);
 	group.add(table);
+
+	//mesh-legs
+	var lGeometry = new THREE.BoxGeometry( 10, 100, 10);
+	var lMaterial = new THREE.MeshLambertMaterial( { color: 0xffaa88 } );
+	
+	var leg1 = new THREE.Mesh( lGeometry, lMaterial );
+	leg1.position.set( -140, 50, 110);
+	group.add(leg1);
+
+	var leg2 = new THREE.Mesh( lGeometry, lMaterial );
+	leg2.position.set( -140, 50, -110);
+	group.add(leg2);
+
+	var leg3 = new THREE.Mesh( lGeometry, lMaterial );
+	leg3.position.set( 140, 50, 110);
+	group.add(leg3);
+
+	var leg4 = new THREE.Mesh( lGeometry, lMaterial );
+	leg4.position.set( 140, 50, -110);
+	group.add(leg4);
+
 };
 
 
@@ -50,25 +66,14 @@ function render() {
 
 function addBooth(item) {
 	
-	var x = 100 || item.size_x;
-	var y = 100 || item.size_y;
-	var z = 100 || item.size_z;
-
-	//var iGeometry = new THREE.BoxGeometry( x, y, z);
-
-	/*
-	var texture = THREE.ImageUtils.loadTexture( 'images/empty.gif', THREE.UVMapping, render );
-	texture.anisotropy = renderer.getMaxAnisotropy();
-
-	var iMaterial = new THREE.MeshLambertMaterial( { map: texture, color: 0xffffff } );
-	*/
+	var x = item.size_x || 50;
+	var y = item.size_y || 50;
+	var z = item.size_z || 50;
 
 	var loader = new THREE.TextureLoader();
 
-
 	var iGeometry = new THREE.BoxGeometry( x, y, z);
-	var iMaterial;// = new THREE.MeshLambertMaterial( { map: THREE.ImageUtils.loadTexture('images/empty.jpg') } );
-
+	var iMaterial;
 	
 	loader.load(
 		'images/empty.png', 
@@ -123,7 +128,7 @@ function Change3D() {
 	aspect = width / height,
 	
 	camera3D = new THREE.PerspectiveCamera(fov, aspect, near, far);
-	camera3D.position.set( 0, 500, 100);
+	camera3D.position.set( 0, 400, 400);
 
 	camera = camera3D;
 
@@ -140,7 +145,7 @@ function Booth () {
 	renderer.setPixelRatio( window.devicePixelRatio);
 	renderer.setSize(width, height);
 	renderer.sortObjects = false;
-	renderer.setClearColor(0xeeeeee, 1);
+	renderer.setClearColor(0xffffff, 1);
 	$('#booth').append(renderer.domElement);
 
 	scene = new THREE.Scene();

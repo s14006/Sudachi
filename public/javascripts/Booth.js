@@ -1,7 +1,8 @@
 var width = $('#booth')[0].clientWidth,
 	height = $(window).height() - $('#header').height() - 44,  //44はmarginとborderを合わせた数
 	near = 1,
-	far = 1000;
+	far = 1000,
+	items = [];
 	
 var scene, group, renderer, camera2D, camera3D, camera, control;
 
@@ -54,7 +55,6 @@ function Field() {
 
 
 function render() {
-
 	requestAnimationFrame(render);
 
 	if (camera == camera3D) {
@@ -66,13 +66,13 @@ function render() {
 
 function addBooth(item) {
 	
-	var x = item.size_x || 50;
-	var y = item.size_y || 50;
-	var z = item.size_z || 50;
+	var x = 50 || item.size_x;
+	var y = 50 || item.size_y;
+	var z = 50 || item.size_z;
 
 	var loader = new THREE.TextureLoader();
 
-	var iGeometry = new THREE.BoxGeometry( x, y, z);
+	var iGeometry = new THREE.BoxGeometry( x, y, z );
 	var iMaterial;
 	
 	loader.load(
@@ -84,27 +84,19 @@ function addBooth(item) {
 			control = new THREE.TransformControls( camera, renderer.domElement);
 			$(control).bind('change', render);
 			
-			var itemB = new THREE.Mesh( iGeometry, iMaterial);
-			itemB.position.set( 0, 130, 0);
-			group.add(itemB);
+			var item = new THREE.Mesh( iGeometry, iMaterial);
+			item.position.set( 0, 130, 0);
+			group.add(item);
 
-			control.attach(itemB);
+			control.attach(item);
 			group.add(control);
+
+			console.log(item.position);
+			items.push(item);
 		}
 	);
-
-	
-	control = new THREE.TransformControls( camera, renderer.domElement);
-	$(control).bind('change', render);
-	
-	var itemB = new THREE.Mesh( iGeometry, iMaterial);
-	itemB.position.set( 0, 130, 0);
-	group.add(itemB);
-
-	control.attach(itemB);
-	group.add(control);
-
 	renderer.render( scene, camera);
+	console.log(items);
 };
 
 //camera

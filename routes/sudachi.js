@@ -1,23 +1,22 @@
 var express = require('express');
 var router = express.Router();
 
-//Create
-router.post('/sudachi/create', function(req, res, next) {
-  res.send('create');
+//Create(保留)
+router.post('/sudachi/create', function(req, res) {
 });
 
 //Read
-router.get('/sudachi/read', function(req, res, next) {
+router.get('/sudachi/read', function(req, res) {
   res.send('auau');
 });
 
 //Update
-router.post('/sudachi/update', function(req, res, next) {
+router.post('/sudachi/update', function(req, res) {
   res.send('update');
 });
 
-//Delete
-router.post('/sudachi/delete', function(req, res, next) {
+//Delete(保留)
+router.post('/sudachi/delete', function(req, res) {
   res.send('delete');
 });
 

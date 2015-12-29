@@ -22,18 +22,12 @@ $(window).load(function  () {
 		itemAdd(name, category, size);
 		$('#modal').css('display','none');
 	});
-
-
+	
 	$('.i-add').click(function() {
 		i_id = parseInt($(this).attr('id').slice(-1));
 		addBooth(itemList[i_id]);
 	});
 
-	//listからitemを削除
-	/*$('#' + num).click(function() {
-		$('.items').css('display', 'none');
-	});
-	*/
 	//camera change
 	$('#2D').click(function() {
 		Change2D();
@@ -42,4 +36,6 @@ $(window).load(function  () {
 	$('#3D').click(function() {
 		Change3D();
 	});
+
+	
 });

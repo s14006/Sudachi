@@ -25,6 +25,7 @@ $(window).load(function  () {
 	
 	$('.i-add').click(function() {
 		i_id = parseInt($(this).attr('id').slice(-1));
+
 		addBooth(itemList[i_id]);
 	});
 
@@ -37,5 +38,24 @@ $(window).load(function  () {
 		Change3D();
 	});
 
-	
+	$('#save').click(function() {
+		/*
+		$.ajax({
+			url: 'https://localhost:3000/sudachi/update',
+			type: "POST",
+			cache: false,
+			dataType: "json",
+			data: {
+			
+			},
+			success: function() {
+
+			}
+
+
+		});
+*/
+
+		console.log(items);
+	});
 });

@@ -1,10 +1,12 @@
-var width = $('#booth')[0].clientWidth,
-	height = $(window).height() - $('#header').height() - 44,  //44はmarginとborderを合わせた数
+var w_width = $('#booth')[0].clientWidth,
+	w_height = $(window).height() - $('#header').height() - 44,  //44はmarginとborderを合わせた数
 	near = 1,
 	far = 1000,
 	items = [];
 	
-var scene, group, renderer, camera2D, camera3D, camera, control;
+var scene, group, renderer,
+	camera2D, camera3D, camera,
+	control,table;
 
 function Field() {
 
@@ -27,7 +29,7 @@ function Field() {
 	//mesh-table
 	var tGeometry = new THREE.BoxGeometry( 300, 10, 250);
 	var tMaterial = new THREE.MeshLambertMaterial( { color: 0x20b2aa} );
-	var table = new THREE.Mesh( tGeometry, tMaterial);
+	table = new THREE.Mesh( tGeometry, tMaterial);
 	table.position.set( 0, 100, 0);
 	group.add(table);
 
@@ -65,10 +67,13 @@ function render() {
 };
 
 function addBooth(item) {
-	
-	var x = 50 || item.size_x;
-	var y = 50 || item.size_y;
-	var z = 50 || item.size_z;
+	console.log(item);
+
+	var x = item.size_x || 50;
+	var y = item.size_y || 50;
+	var z = item.size_z || 50;
+
+	console.log(y);
 
 	var loader = new THREE.TextureLoader();
 
@@ -85,25 +90,22 @@ function addBooth(item) {
 			$(control).bind('change', render);
 			
 			var item = new THREE.Mesh( iGeometry, iMaterial);
-			item.position.set( 0, 130, 0);
+			item.position.set( 0, table.position.y + 5 + (y / 2), 0);
 			group.add(item);
 
 			control.attach(item);
 			group.add(control);
-
-			console.log(item.position);
-			items.push(item);
 		}
 	);
 	renderer.render( scene, camera);
-	console.log(items);
+	items.push(item);
 };
 
 //camera
 
 function Change2D() {
 
-	camera2D = new THREE.OrthographicCamera( width / -2, width / 2, height / 2, height / -2, near, far);
+	camera2D = new THREE.OrthographicCamera( w_width / -2, w_width / 2, w_height / 2, w_height / -2, near, far);
 	camera2D.position.set( 0, 500, 0);
 	camera2D.lookAt({ x:0, y:0, z:-1 });
 
@@ -117,10 +119,10 @@ function Change2D() {
 function Change3D() {
 
 	fov = 45,
-	aspect = width / height,
+	aspect = w_width / w_height,
 	
 	camera3D = new THREE.PerspectiveCamera(fov, aspect, near, far);
-	camera3D.position.set( 0, 400, 400);
+	camera3D.position.set( 0, 400, 200);
 
 	camera = camera3D;
 
@@ -135,7 +137,7 @@ function Booth () {
 	//renderer
 	renderer = new THREE.WebGLRenderer({ antialias: true });
 	renderer.setPixelRatio( window.devicePixelRatio);
-	renderer.setSize(width, height);
+	renderer.setSize(w_width, w_height);
 	renderer.sortObjects = false;
 	renderer.setClearColor(0xffffff, 1);
 	$('#booth').append(renderer.domElement);

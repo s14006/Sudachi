@@ -29,11 +29,6 @@
 						<input class="mdl-textfield__input" type="text" id="name" />
 						<label class="mdl-textfield__label" for="name">name</label>
 					</div>
-					
-					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label input">
-					       <input class="mdl-textfield__input" type="text" id="category" />
-					       <label class="mdl-textfield__label" for="category">category</label>
-					</div>
 
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label input">
 						<select class="mdl-textfield__input" name="size" id="itemsize">
@@ -76,6 +71,7 @@
 			<div class="mdl-layout-spacer"></div>
 			<!-- Navigation. We hide it in small screens. -->
 			<nav class="mdl-navigation mdl-layout--large-screen-only">
+			<a class="mdl-navigation__link" href="#" id="s_change">Change 2sp</a>
 			<a class="mdl-navigation__link" href="#" id="save">Save</a>
 			</nav>
 			</div>
@@ -102,14 +98,13 @@
 								<div class="mdl-card__title mdl-card__title">
 									<h2 class="mdl-card__title-text" id="i-name0">item1</h2>
 								</div>
-								<div class="mdl-card__supporting-text" id="category0"></div>
 								<div class="mdl-card__supporting-text" id="size0"></div>
 								<div class="mdl-card__actions mdl-card--border">
 									<button class="mdl-button mdl-jsbutton" id="menu0">menu</button>
 									<ul class="mdl-menu mdl-menu--top-left mdl-js-menu" for="menu0">
 										<li class="mdl-menu__item i-add" id="i-add0">additem</li>
-										<li class="mdl-menu__item i-edit">edit</li>
-										<li class="mdl-menu__item i-delete">delete</li>
+										<li class="mdl-menu__item i-edit" id="i-edit0">edit</li>
+										<li class="mdl-menu__item i-delete" id="i-delete0">delete</li>
 									</ul>
 								</div>
 							</div>
@@ -120,15 +115,13 @@
 								<div class="mdl-card__title mdl-card__title">
 									<h2 class="mdl-card__title-text" id="i-name1">item2</h2>
 								</div>
-								<div class="mdl-card__supporting-text" id="category1">
-									auau
-								</div>
+								<div class="mdl-card__supporting-text" id="size1"></div>								
 								<div class="mdl-card__actions mdl-card--border">
 									<button class="mdl-button mdl-jsbutton" id="menu1">menu</button>
 									<ul class="mdl-menu mdl-menu--top-left mdl-js-menu" for="menu1">
 										<li class="mdl-menu__item i-add" id="i-add1">additem</li>
 										<li class="mdl-menu__item i-edit" id="i-edit1">edit</li>
-										<li class="mdl-menu__item i-delete" id="i-delete0">delete</li>
+										<li class="mdl-menu__item i-delete" id="i-delete1">delete</li>
 									</ul>
 								</div>
 							</div>
@@ -139,13 +132,11 @@
 								<div class="mdl-card__title mdl-card__title">
 									<h2 class="mdl-card__title-text" id="i-name2">item3</h2>
 								</div>
-								<div class="mdl-card__supporting-text" id="category2">
-									auau
-								</div>
+								<div class="mdl-card__supporting-text" id="size2"></div>
 								<div class="mdl-card__actions mdl-card--border">
 									<button class="mdl-button mdl-jsbutton" id="menu3">menu</button>
 									<ul class="mdl-menu mdl-menu--top-left mdl-js-menu" for="menu2">
-										<li class="mdl-menu__item i-add" id="i-add3">additem</li>
+										<li class="mdl-menu__item i-add" id="i-add2">additem</li>
 										<li class="mdl-menu__item i-edit" id="i-edit2">edit</li>
 										<li class="mdl-menu__item idelete" id="i-delete2">delete</li>
 									</ul>
@@ -158,13 +149,11 @@
 								<div class="mdl-card__title mdl-card__title">
 									<h2 class="mdl-card__title-text" id="i-name3">item4</h2>
 								</div>
-								<div class="mdl-card__supporting-text" id="category3">
-									auau
-								</div>
+								<div class="mdl-card__supporting-text" id="size3"></div>
 								<div class="mdl-card__actions mdl-card--border">
 									<button class="mdl-button mdl-jsbutton" id="menu3">menu</button>
 									<ul class="mdl-menu mdl-menu--top-left mdl-js-menu" for="menu3">
-										<li class="mdl-menu__item i-add" id="i-add4">additem</li>
+										<li class="mdl-menu__item i-add" id="i-add3">additem</li>
 										<li class="mdl-menu__item i-edit" id="i-edit3">edit</li>
 										<li class="mdl-menu__item idelete" id="i-delete3">delete</li>
 									</ul>
@@ -177,13 +166,11 @@
 								<div class="mdl-card__title mdl-card__title">
 									<h2 class="mdl-card__title-text" id="i-name4">item5</h2>
 								</div>
-								<div class="mdl-card__supporting-text" id="category4">
-									auau
-								</div>
+								<div class="mdl-card__supporting-text" id="size4"></div>
 								<div class="mdl-card__actions mdl-card--border">
 									<button class="mdl-button mdl-jsbutton" id="menu4">menu</button>
 									<ul class="mdl-menu mdl-menu--top-left mdl-js-menu" for="menu4">
-										<li class="mdl-menu__item i-add" id="i-add5">additem</li>
+										<li class="mdl-menu__item i-add" id="i-add4">additem</li>
 										<li class="mdl-menu__item i-edit" id="i-edit4">edit</li>
 										<li class="mdl-menu__item idelete" id="i-delete4">delete</li>
 									</ul>
@@ -196,13 +183,11 @@
 								<div class="mdl-card__title mdl-card__title">
 									<h2 class="mdl-card__title-text" id="i-name5">item6</h2>
 								</div>
-								<div class="mdl-card__supporting-text" id="category5">
-									auau
-								</div>
+								<div class="mdl-card__supporting-text" id="size5"></div>
 								<div class="mdl-card__actions mdl-card--border">
 									<button class="mdl-button mdl-jsbutton" id="menu5">menu</button>
 									<ul class="mdl-menu mdl-menu--top-left mdl-js-menu" for="menu5">
-										<li class="mdl-menu__item i-add" id="i-add6">additem</li>
+										<li class="mdl-menu__item i-add" id="i-add5">additem</li>
 										<li class="mdl-menu__item i-edit" id="i-edit5">edit</li>
 										<li class="mdl-menu__item idelete" id="i-delete5">delete</li>
 									</ul>
@@ -215,13 +200,11 @@
 								<div class="mdl-card__title mdl-card__title">
 									<h2 class="mdl-card__title-text" id="i-name6">item7</h2>
 								</div>
-								<div class="mdl-card__supporting-text" id="category6">
-									auau
-								</div>
+								<div class="mdl-card__supporting-text" id="size6"></div>
 								<div class="mdl-card__actions mdl-card--border">
 									<button class="mdl-button mdl-jsbutton" id="menu6">menu</button>
 									<ul class="mdl-menu mdl-menu--top-left mdl-js-menu" for="menu6">
-										<li class="mdl-menu__item i-add" id="i-add7">additem</li>
+										<li class="mdl-menu__item i-add" id="i-add6">additem</li>
 										<li class="mdl-menu__item i-edit" id="i-edit6">edit</li>
 										<li class="mdl-menu__item idelete" id="i-delete6">delete</li>
 									</ul>
@@ -234,13 +217,11 @@
 								<div class="mdl-card__title mdl-card__title">
 									<h2 class="mdl-card__title-text" id="i-name7">item8</h2>
 								</div>
-								<div class="mdl-card__supporting-text" id="category7">
-									auau
-								</div>
+								<div class="mdl-card__supporting-text" id="size7"></div>
 								<div class="mdl-card__actions mdl-card--border">
 									<button class="mdl-button mdl-jsbutton" id="menu7">menu</button>
 									<ul class="mdl-menu mdl-menu--top-left mdl-js-menu" for="menu7">
-										<li class="mdl-menu__item i-add" id="i-add8">additem</li>
+										<li class="mdl-menu__item i-add" id="i-add7">additem</li>
 										<li class="mdl-menu__item i-edit" id="i-edit7">edit</li>
 										<li class="mdl-menu__item" id='i-delete7'>delete</li>
 									</ul>
@@ -253,13 +234,11 @@
 								<div class="mdl-card__title mdl-card__title">
 									<h2 class="mdl-card__title-text" id="i-name8">item9</h2>
 								</div>
-								<div class="mdl-card__supporting-text" id="category8">
-									auau
-								</div>
+								<div class="mdl-card__supporting-text" id="size8"></div>
 								<div class="mdl-card__actions mdl-card--border">
 									<button class="mdl-button mdl-jsbutton" id="menu8">menu</button>
 									<ul class="mdl-menu mdl-menu--top-left mdl-js-menu" for="menu8">
-										<li class="mdl-menu__item i-add" id="i-add9">additem</li>
+										<li class="mdl-menu__item i-add" id="i-add8">additem</li>
 										<li class="mdl-menu__item i-edit" id="i-edit8">edit</li>
 										<li class="mdl-menu__item idelete" id="i-delete8">delete</li>
 									</ul>
@@ -272,13 +251,11 @@
 								<div class="mdl-card__title mdl-card__title">
 									<h2 class="mdl-card__title-text" id="i-name9">item10</h2>
 								</div>
-								<div class="mdl-card__supporting-text" id="category9">
-									auau
-								</div>
+								<div class="mdl-card__supporting-text" id="size9"></div>
 								<div class="mdl-card__actions mdl-card--border">
 									<button class="mdl-button mdl-js-button" id="menu9">menu</button>
 									<ul class="mdl-menu mdl-menu--top-left mdl-js-menu" for="menu9">
-										<li class="mdl-menu__item i-add" id="i-add10">additem</li>
+										<li class="mdl-menu__item i-add" id="i-add9">additem</li>
 										<li class="mdl-menu__item i-edit" id="i-edit9">edit</li>
 										<li class="mdl-menu__item idelete" id="i-delete9">delete</li>
 									</ul>

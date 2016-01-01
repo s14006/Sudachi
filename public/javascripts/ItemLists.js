@@ -1,11 +1,9 @@
-
-//あうあう
 itemList = [];
 count = 0;
 
-// アイテムをリスtに追加
-function itemAdd (name, category, size) {
-	item = new itemCreate(name, category, size, count);
+// アイテムをリストに追加
+function itemAdd (name, size) {
+	item = new itemCreate(name, size, count);
 	listDisplay(item);
 	count++;
 	itemList.push(item);
@@ -13,9 +11,8 @@ function itemAdd (name, category, size) {
 }
 
 // アイテムを作る
-function itemCreate(name, category, size, num) {
+function itemCreate(name, size, num) {
 	this.name = name;
-	this.category = category;
 	this._image = null;
 	this.num = num;
 
@@ -51,6 +48,5 @@ function itemRemove(item) {
 function listDisplay(item) {
 	$('#item-' + item.num).css('display', 'block');
 	$('#i-name' + item.num).text(item.name);
-	$('#category' + item.num).text(item.category);
 	$('#size' + item.num).text(item._size);
 }

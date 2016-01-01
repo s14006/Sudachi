@@ -8,7 +8,7 @@ var scene, group, renderer,
 	camera2D, camera3D, camera,
 	control,table;
 
-function Field() {
+function CreateField() {
 
 	//light
 	var light = new THREE.DirectionalLight( 0xffffff, 1);
@@ -67,13 +67,13 @@ function render() {
 };
 
 function addBooth(item) {
-	console.log(item);
+
+	var obj = [item.name];
 
 	var x = item.size_x || 50;
 	var y = item.size_y || 50;
 	var z = item.size_z || 50;
-
-	console.log(y);
+	obj.push({x, y, z});
 
 	var loader = new THREE.TextureLoader();
 
@@ -85,6 +85,7 @@ function addBooth(item) {
 		function( texture) {
 			iGeometry = new THREE.BoxGeometry( x, y, z);
 			iMaterial = new THREE.MeshLambertMaterial( { map: texture} );
+			obj.push(texture);
 
 			control = new THREE.TransformControls( camera, renderer.domElement);
 			$(control).bind('change', render);
@@ -92,17 +93,18 @@ function addBooth(item) {
 			var item = new THREE.Mesh( iGeometry, iMaterial);
 			item.position.set( 0, table.position.y + 5 + (y / 2), 0);
 			group.add(item);
+			obj.push(item.position);
 
 			control.attach(item);
 			group.add(control);
 		}
 	);
-	renderer.render( scene, camera);
-	items.push(item);
+
+	items.push(obj);
+	console.log(items);
 };
 
 //camera
-
 function Change2D() {
 
 	camera2D = new THREE.OrthographicCamera( w_width / -2, w_width / 2, w_height / 2, w_height / -2, near, far);
@@ -110,9 +112,8 @@ function Change2D() {
 	camera2D.lookAt({ x:0, y:0, z:-1 });
 
 	camera = camera2D;
-	renderer.render(scene, camera);
 
-	$('#booth-layer').css( 'dispaly', 'block' );
+	//$('#booth-layer').css( 'dispaly', 'block' );
 
 };
 
@@ -125,10 +126,7 @@ function Change3D() {
 	camera3D.position.set( 0, 400, 200);
 
 	camera = camera3D;
-
 	control = new THREE.OrbitControls(camera3D, renderer.domElement);
-
-	renderer.render(scene, camera);
 
 };
 
@@ -146,11 +144,9 @@ function Booth () {
 	group = new THREE.Group();
 	scene.add(group);
 
-	Field();
+	CreateField();
 
 	Change2D();
-
-	renderer.render(scene, camera);
 
 	render();
 

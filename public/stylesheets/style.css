@@ -7,11 +7,13 @@
 	border: solid 1px #cccccc;
 	border-radius: 10px;
 	margin: 10px;
-	padding: 10px;
+	overflow: hidden;
+	padding: 0;
 }
 
 .item-menu {
-	border: 1px solid #ccc;
+	border-right: solid 1px #cccccc;
+	margin: 0;
 }
 
 #itemlist {
@@ -33,7 +35,7 @@
 /*  booth  */
 
 #booth {
-	border: 1px solid #f55;
+	margin-left: 10px;
 }
 
 .booth-menu {

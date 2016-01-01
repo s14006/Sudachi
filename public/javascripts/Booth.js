@@ -1,5 +1,5 @@
 var w_width = $('#booth')[0].clientWidth,
-	w_height = $(window).height() - $('#header').height() - 44,  //44はmarginとborderを合わせた数
+	w_height = $(window).height() - $('#header').height() - 30,  //44はmarginとborderを合わせた数
 	near = 1,
 	far = 1000,
 	items = [];

@@ -15,12 +15,12 @@ function Field() {
 	light.position.set(0, 300, 50);
 	group.add(light);
 
-	var ambient = new THREE.AmbientLight( 0x555533 );	//環境光
+	var ambient = new THREE.AmbientLight( 0xff7f50 );	//環境光
 	group.add(ambient);
 
 	//mesh-plane
 	var pGeometry = new THREE.PlaneGeometry( 500, 500);
-	var pMaterial = new THREE.MeshLambertMaterial( { color: 0xeeeeee , side: THREE.DoubleSide } );
+	var pMaterial = new THREE.MeshLambertMaterial( { color: 0xff7f50 , side: THREE.DoubleSide } );
 	var plane = new THREE.Mesh( pGeometry, pMaterial );
 	plane.position.set(0, 0, 0);
 	plane.rotation.x = 90 * Math.PI / 180;

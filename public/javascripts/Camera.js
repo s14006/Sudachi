@@ -1,11 +1,3 @@
-function addBooth() {
-		var iGeometry = new THREE.BoxGeometry( 100, 50, 100);
-		var iMaterial = new THREE.MeshLambertMaterial( { color: 0x101010 } );
-		var itemB = new THREE.Mesh( iGeometry, iMaterial);
-		itemB.position.set( 0, 130, 0);
-		scene.add(itemB);
-};
-
 function three() {
 
 	var width = document.getElementById('booth').clientWidth;

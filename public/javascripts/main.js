@@ -17,7 +17,7 @@ $(window).load(function  () {
 	//listにitemを追加
 	$('#listAdd').click(function() {
 		var name = $(':text[id="name"]').val();
-		var size = parseInt($('select[name="size"]').val());
+		var size = $('select[name="size"]').val();
 		itemAdd(name, size);
 		$('#modal').css('display','none');
 	});

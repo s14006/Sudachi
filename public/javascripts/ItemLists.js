@@ -17,10 +17,10 @@ function itemCreate(name, size, num) {
 	this.num = num;
 
 	switch(size) {
-		case 100:
-			this.size_x = 100;
-			this.size_y = 100;
-			this.size_z = 100;
+		case "B5":
+			this.size_x = 182;
+			this.size_y = 257;
+			this.size_z = 2;
 			break;
 
 		case 200:

@@ -1,12 +1,12 @@
 var w_width = $('#booth')[0].clientWidth,
-	w_height = $(window).height() - $('#header').height() - 30,  //44はmarginとborderを合わせた数
+	w_height = $(window).height() - $('#header').height() - 30, 
 	near = 1,
 	far = 10000,
 	items = [];
 	
 var scene, group, renderer,
 	camera2D, camera3D, camera,
-	control,table;
+	control, table;
 
 function CreateField() {
 
@@ -19,7 +19,7 @@ function CreateField() {
 	group.add(ambient);
 
 	//mesh-plane
-	var pGeometry = new THREE.PlaneGeometry( 10000, 10000);
+	var pGeometry = new THREE.PlaneGeometry( 5000, 5000);
 	var pMaterial = new THREE.MeshLambertMaterial( { color: 0x666666 , side: THREE.DoubleSide } );
 	var plane = new THREE.Mesh( pGeometry, pMaterial );
 	plane.position.set(0, 0, 0);
@@ -96,6 +96,7 @@ function addBooth(item) {
 			obj.push(item.position);
 
 			control.attach(item);
+			control.setSize( 0.1 );
 			group.add(control);
 		}
 	);

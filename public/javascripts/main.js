@@ -58,4 +58,5 @@ $(window).load(function  () {
 
 		console.log(items);
 	});
+	
 });

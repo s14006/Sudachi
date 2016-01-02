@@ -884,12 +884,11 @@
 				}
 
 			}
-
 			_dragging = true;
 
 		}
 
-		function onPointerMove( event ) {
+		function onPointerMove( event ) {			
 
 			if ( scope.object === undefined || scope.axis === null || _dragging === false || ( event.button !== undefined && event.button !== 0 ) ) return;
 

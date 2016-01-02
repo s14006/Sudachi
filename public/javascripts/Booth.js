@@ -67,7 +67,6 @@ function render() {
 	
 	
 	if(updated){
-		console.log(updated);
 		renderer.render(scene, camera);
 		updated = false;
 	}
@@ -94,7 +93,7 @@ function addBooth(item) {
 			iMaterial = new THREE.MeshLambertMaterial({ map: texture });
 
 			control = new THREE.TransformControls(camera, renderer.domElement);
-			$(control).bind('change', render);
+			// objectChangeの時だけupdatedをtrueにする。
 			control.addEventListener("objectChange", function(){ updated = true; });
 
 			var item = new THREE.Mesh(iGeometry, iMaterial);
@@ -103,10 +102,11 @@ function addBooth(item) {
 
 			control.attach(item);
 			group.add(control);
+			items.push(item);
+			renderer.render(scene, camera);
 		}
-		);
-	renderer.render(scene, camera);
-	items.push(item);
+	);
+
 };
 
 //camera

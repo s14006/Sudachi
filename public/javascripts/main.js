@@ -45,7 +45,6 @@ $(window).load(function  () {
 			cache: false,
 			dataType: "json",
 			data: {
-			
 			},
 			success: function() {
 

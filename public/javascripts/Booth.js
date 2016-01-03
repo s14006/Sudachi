@@ -6,7 +6,8 @@ var w_width = $('#booth')[0].clientWidth,
 	
 var scene, group, renderer,
 	camera2D, camera3D, camera,
-	control, table;
+	control, table,
+	update = false;
 
 function CreateField() {
 
@@ -45,12 +46,12 @@ function CreateField() {
 	leg2.position.set( -350, 350, -150);
 	group.add(leg2);
 
-	var leg3 = new THREE.Mesh( lGeometry, lMaterial );
-	leg3.position.set( 350, 350, 150);
+	var leg3 = new THREE.Mesh(lGeometry, lMaterial);
+	leg3.position.set(350, 350, 150);
 	group.add(leg3);
 
-	var leg4 = new THREE.Mesh( lGeometry, lMaterial );
-	leg4.position.set( 350, 350, -150);
+	var leg4 = new THREE.Mesh(lGeometry, lMaterial);
+	leg4.position.set(350, 350, -150);
 	group.add(leg4);
 
 };
@@ -63,7 +64,14 @@ function render() {
 		control.update();
 	};
 
-	renderer.render(scene, camera);
+	$('#booth canvas').bind('mousemove touchmove', function() {
+		update = true;
+	});
+
+	if (update) {
+		renderer.render(scene, camera);
+		update = false;
+	};
 };
 
 function addBooth(item) {
@@ -73,37 +81,31 @@ function addBooth(item) {
 	var z = item.size_z || 50;
 
 	var loader = new THREE.TextureLoader();
-
-	var iGeometry = new THREE.BoxGeometry( x, y, z );
+	var iGeometry = new THREE.BoxGeometry(x, y, z);
 	var iMaterial;
 	
+	var obj = {name: item.name, itemsize: {x, y, z}};
 
-	var obj = {name: item.name, 
-						itemsize: {x, y, z}};
 	loader.load(
 		'images/empty.png', 
-		function( texture) {
-			iGeometry = new THREE.BoxGeometry( x, y, z);
+		function(texture) {
+			iGeometry = new THREE.BoxGeometry(x, y, z);
 			iMaterial = new THREE.MeshLambertMaterial( { map: texture} );
 			obj['itemimg'] = 'images/empty.png';
 
-			control = new THREE.TransformControls( camera, renderer.domElement);
-			$(control).bind('change', render);
+			control = new THREE.TransformControls(camera, renderer.domElement);
+			//$(control).bind('change', render);
 			
-			item = new THREE.Mesh( iGeometry, iMaterial);
-			item.position.set( 0, table.position.y + 15 + (y / 2), 0);
+			item = new THREE.Mesh(iGeometry, iMaterial);
+			item.position.set(0, table.position.y + 15 + (y / 2), 0);
 			group.add(item);
 			obj['itemposition'] = item.position;
 
 			control.attach(item);
-			control.setSize( 0.1 );
+			control.setSize(0.1);
 			group.add(control);
 		}
 	);
-
-
-	
-
 
 	items.push(obj);
 	console.log(items);
@@ -151,6 +153,8 @@ function Booth () {
 	CreateField();
 
 	Change2D();
+
+	renderer.render(scene, camera);
 
 	render();
 

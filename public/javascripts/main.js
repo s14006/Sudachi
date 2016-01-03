@@ -49,11 +49,9 @@ $(window).load(function  () {
 			success: function() {
 
 			}
-
-
 		});
-*/
-
-		console.log(items);
+		*/
+		console.log(JSON.stringify(items));
+		console.log(this.ajax['data']);
 	});
 });

@@ -1,5 +1,5 @@
 var w_width = $('#booth')[0].clientWidth,
-	w_height = $(window).height() - $('#header').height() - 30, 
+	w_height = $(window).height() - $('#header').height() - 25, 
 	near = 1,
 	far = 10000,
 	items = [];
@@ -68,38 +68,42 @@ function render() {
 
 function addBooth(item) {
 
-	var obj = [item.name];
-
 	var x = item.size_x || 50;
 	var y = item.size_y || 50;
 	var z = item.size_z || 50;
-	obj.push({x, y, z});
 
 	var loader = new THREE.TextureLoader();
 
 	var iGeometry = new THREE.BoxGeometry( x, y, z );
 	var iMaterial;
 	
+
+	var obj = {name: item.name, 
+						itemsize: {x, y, z}};
 	loader.load(
 		'images/empty.png', 
 		function( texture) {
 			iGeometry = new THREE.BoxGeometry( x, y, z);
 			iMaterial = new THREE.MeshLambertMaterial( { map: texture} );
-			obj.push(texture);
+			obj['itemimg'] = 'images/empty.png';
 
 			control = new THREE.TransformControls( camera, renderer.domElement);
 			$(control).bind('change', render);
 			
-			var item = new THREE.Mesh( iGeometry, iMaterial);
-			item.position.set( 0, table.position.y + 5 + (y / 2), 0);
+			item = new THREE.Mesh( iGeometry, iMaterial);
+			item.position.set( 0, table.position.y + 15 + (y / 2), 0);
 			group.add(item);
-			obj.push(item.position);
+			obj['itemposition'] = item.position;
 
 			control.attach(item);
 			control.setSize( 0.1 );
 			group.add(control);
 		}
 	);
+
+
+	
+
 
 	items.push(obj);
 	console.log(items);
@@ -123,7 +127,7 @@ function Change3D() {
 	aspect = w_width / w_height,
 	
 	camera3D = new THREE.PerspectiveCamera(fov, aspect, near, far);
-	camera3D.position.set( 0, 2500., 200);
+	camera3D.position.set( 0, 1500, 800);
 
 	camera = camera3D;
 	control = new THREE.OrbitControls(camera3D, renderer.domElement);

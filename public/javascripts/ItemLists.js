@@ -17,16 +17,16 @@ function itemCreate(name, size, num) {
 	this.num = num;
 
 	switch(size) {
-		case "B5":
+		case "B5_book_stand":
 			this.size_x = 182;
 			this.size_y = 257;
 			this.size_z = 2;
 			break;
 
-		case 200:
-			this.size_x = 200;
-			this.size_y = 200;
-			this.size_z = 200;
+		case "B5_book_put":
+			this.size_x = 182;
+			this.size_y = 2;
+			this.size_z = 257;
 			break;
 	}
 }

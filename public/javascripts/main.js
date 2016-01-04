@@ -25,7 +25,11 @@ $(window).load(function  () {
 	$('.i-add').click(function() {
 		i_id = parseInt($(this).attr('id').slice(-1));
 
-		addBooth(itemList[i_id]);
+		if (camera == camera3D) {
+			alert('2Dでやってちょ…(；´∀｀)');
+		} else {
+			addBooth(itemList[i_id]);
+		}
 	});
 
 	//camera change

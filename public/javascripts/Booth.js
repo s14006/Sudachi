@@ -77,45 +77,39 @@ function render() {
 
 function addBooth(item) {
 
-	if (camera == camera3D) {
-		alert('2Dでやってちょ…(；´∀｀)');
-	} else {
-		var x = item.size_x || 50;
-		var y = item.size_y || 50;
-		var z = item.size_z || 50;
+	var x = item.size_x || 50;
+	var y = item.size_y || 50;
+	var z = item.size_z || 50;
 
-		var loader = new THREE.TextureLoader();
-		var iGeometry = new THREE.BoxGeometry(x, y, z);
-		var iMaterial;
-		
-		var obj = {name: item.name, itemsize: {x, y, z}};
-
-		loader.load(
-			'images/empty.png', 
-			function(texture) {
-				iGeometry = new THREE.BoxGeometry(x, y, z);
-				iMaterial = new THREE.MeshLambertMaterial( { map: texture} );
-				obj['itemimg'] = 'images/empty.png';
-
-				control = new THREE.TransformControls(camera, renderer.domElement);
-				//$(control).bind('change', render);
-				
-				item = new THREE.Mesh(iGeometry, iMaterial);
-				item.position.set(0, table.position.y + 15 + (y / 2), 0);
-				group.add(item);
-				obj['itemposition'] = item.position;
-
-				control.attach(item);
-				control.setSize(0.1);
-				group.add(control);
-			}
-		);
-
-		items['item' + count_i] = obj;
-		count_i++;
-	}
+	var loader = new THREE.TextureLoader();
+	var iGeometry = new THREE.BoxGeometry(x, y, z);
+	var iMaterial;
 	
+	var obj = {name: item.name, itemsize: {x, y, z}};
 
+	loader.load(
+		'images/empty.png', 
+		function(texture) {
+			iGeometry = new THREE.BoxGeometry(x, y, z);
+			iMaterial = new THREE.MeshLambertMaterial( { map: texture} );
+			obj['itemimg'] = 'images/empty.png';
+
+			control = new THREE.TransformControls(camera, renderer.domElement);
+			//$(control).bind('change', render);
+			
+			item = new THREE.Mesh(iGeometry, iMaterial);
+			item.position.set(0, table.position.y + 15 + (y / 2), 0);
+			group.add(item);
+			obj['itemposition'] = item.position;
+
+			control.attach(item);
+			control.setSize(0.1);
+			group.add(control);
+		}
+	);
+
+	items['item' + count_i] = obj;
+	count_i++;
 };
 
 //camera

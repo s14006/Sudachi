@@ -38,20 +38,19 @@ $(window).load(function  () {
 	});
 
 	$('#save').click(function() {
-		/*
+		
 		$.ajax({
 			url: 'https://localhost:3000/sudachi/update',
 			type: "POST",
 			cache: false,
 			dataType: "json",
-			data: {
-			},
+			data: JSON.stringify(items),
 			success: function() {
-
+				//auauauau
+			},
+			error: function() {
+				alert('error');
 			}
 		});
-		*/
-		console.log(JSON.stringify(items));
-		console.log(this.ajax['data']);
 	});
 });

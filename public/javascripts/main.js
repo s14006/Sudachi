@@ -44,16 +44,16 @@ $(window).load(function  () {
 	$('#save').click(function() {
 		
 		$.ajax({
-			url: 'https://localhost:3000/sudachi/update',
+			url: 'http://localhost:3000/sudachi/update',
 			type: "POST",
 			cache: false,
 			dataType: "json",
 			data: JSON.stringify(items),
 			success: function() {
-				//auauauau
+				console.log('auau');
 			},
 			error: function() {
-				alert('error');
+				console.log('error');
 			}
 		});
 	});

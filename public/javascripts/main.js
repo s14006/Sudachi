@@ -48,6 +48,7 @@ $(window).load(function  () {
 			type: "POST",
 			cache: false,
 			dataType: "json",
+			contentType: "application/json", 
 			data: JSON.stringify(items),
 			success: function() {
 				console.log('auau');

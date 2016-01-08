@@ -15,7 +15,7 @@ router.get('/sudachi/read', function(req, res) {
 
 //Update
 router.post('/update', function(req, res) {
-	console.log(req["body"]);
+	console.log(req.body);
   //res.send('update');
 });
 

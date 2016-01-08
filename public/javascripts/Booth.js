@@ -54,9 +54,7 @@ function CreateField() {
 	var leg4 = new THREE.Mesh(lGeometry, lMaterial);
 	leg4.position.set(350, 350, -150);
 	group.add(leg4);
-
 };
-
 
 function render() {
 	requestAnimationFrame(render);
@@ -120,7 +118,6 @@ function Change2D() {
 	camera2D.lookAt({ x:0, y:0, z:-1 });
 
 	camera = camera2D;
-	//$('#booth-layer').css( 'dispaly', 'block' );
 
 };
 

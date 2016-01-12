@@ -2,7 +2,8 @@ var w_width = $('#booth')[0].clientWidth,
 	w_height = $(window).height() - $('#header').height() - 25, 
 	near = 1,
 	far = 10000,
-	items = {},
+	items = {id: 'oo3', contents: '', createtime: '', updatetime: ''},
+	contents = {},
 	count_i = 0;
 	
 var scene, group, renderer,
@@ -106,7 +107,8 @@ function addBooth(item) {
 		}
 	);
 
-	items['item' + count_i] = obj;
+	contents['item' + count_i] = obj;
+	items['contents'] = contents;
 	count_i++;
 };
 

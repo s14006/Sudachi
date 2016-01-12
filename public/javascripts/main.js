@@ -41,8 +41,28 @@ $(window).load(function  () {
 		Change3D();
 	});
 
+	$('#setting').click(function() {
+		items["createtime"] = Date.now();
+		$.ajax({
+			url: 'http://localhost:3000/sudachi/create',
+			type: "POST",
+			cache: false,
+			dataType: "json",
+			contentType: 'application/json',
+			data: JSON.stringify(items),
+			success: function() {
+				console.log('success');
+			},
+			error: function() {
+				console.log('error');
+			}
+		});
+	});
+
 	$('#save').click(function() {
-		
+		items["updatetime"] = Date.now();
+		console.log(items);
+
 		$.ajax({
 			url: 'http://localhost:3000/sudachi/update',
 			type: "POST",

@@ -136,6 +136,16 @@ function Change3D() {
 
 };
 
+function onWindowResize() {
+	w_width = $('#booth')[0].clientWidth;
+	w_height = $(window).height() - $('#header').height() - 25;
+
+	camera.aspect = w_width / w_height;
+	camera.updateProjectionMatrix();
+
+	renderer.setSize( w_width, w_height );
+}
+
 function Booth () {
 
 	//renderer
@@ -157,6 +167,8 @@ function Booth () {
 	renderer.render(scene, camera);
 
 	render();
+
+	window.addEventListener( 'resize', onWindowResize, false );
 
 };
 

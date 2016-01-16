@@ -43,6 +43,8 @@ $(window).load(function  () {
 
 	$('#setting').click(function() {
 		items["createtime"] = Date.now();
+		items["updatetime"] = items["createtime"];
+
 		$.ajax({
 			url: 'http://localhost:3000/sudachi/create',
 			type: "POST",
@@ -61,7 +63,7 @@ $(window).load(function  () {
 
 	$('#save').click(function() {
 		items["updatetime"] = Date.now();
-		console.log(items);
+		console.log(items["updatetime"]);
 
 		$.ajax({
 			url: 'http://localhost:3000/sudachi/update',

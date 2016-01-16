@@ -5,17 +5,17 @@ var filename = __dirname + '/db.sqlite3';
 var db = new sqlite3.Database(filename);
 
 var sqlInsert = 'INSERT INTO items VALUES(?, ?, ?, ?);';
-var sqlUpdate = 'UPDATE items SET sudachi = ? where id = ?;';
+var sqlUpdate = 'UPDATE items SET sudachi = ? ,update_date = ? WHERE id = ?;';
 var sqlSelect = 'select * from items;';
 
 //Create(保留)
-/*
 router.post('/create', function(req, res) {
 	content = req.body;
 	var s_id = content.id;
 	var sudachi = content.contents;
 	var createtime = content.createtime;
 	var updatetime = content.updatetime;
+	console.log(typeof sudachi);
 
 	db.serialize(function() {
 		db.run(sqlInsert, s_id, sudachi, createtime, updatetime);
@@ -28,7 +28,7 @@ router.post('/create', function(req, res) {
 	});
 
 });
-*/
+
 
 //Read
 router.get('/sudachi/read', function(req, res) {
@@ -37,15 +37,15 @@ router.get('/sudachi/read', function(req, res) {
 
 //Update
 router.post('/update', function(req, res) {
-	var content = req.body;
-	console.log(content);
-	var s_id = content.id;
-	var sudachi = content.contents;
-	var createtime = content.createtime;
-	var updatetime = content.updatetime;
+	content = req.body;
+	s_id = content.id;
+	sudachi = JSON.stringify(content.contents);
+	createtime = content.createtime;
+	updatetime = content.updatetime;
+	console.log(updatetime);
 
 	db.serialize(function() {
-		db.run(sqlUpdate, sudachi, s_id);
+		db.run(sqlUpdate, sudachi, updatetime, s_id);
 	});
 
 	db.each(sqlSelect, function(err, row) {
@@ -53,6 +53,7 @@ router.post('/update', function(req, res) {
 			console.log(row);
 		};
 	});
+	
 });
 
 //Delete(保留)

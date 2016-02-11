@@ -11,11 +11,13 @@
 
 	<!-- jQuery -->
 	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-
+	
+	<!-- CSS -->
 	<link rel="stylesheet" href="./stylesheets/style.css">
-	<!--<script type="text/javascript" src="js/three/three.min.js"></script>-->
+
+	<!-- JavaScript -->
 	<script type="text/javascript" src="javascripts/main.js"></script>
-	<script type="text/javascript" src="javascripts/ItemLists.js"></script>
+	<script type="text/javascript" src="javascripts/itemLists.js"></script>
 </head>
 <body>
 
@@ -23,7 +25,7 @@
 	<div id="modal">
 		<div class="mdl-grid modal-center mdl-shadow--6dp">
 			
-			<div class="mdl-cell mdl-cell--6-col mdl-cell--6-col-tablet modal-content">
+			<div class="mdl-cell mdl-cell--6-col mdl-cell--6-col-tablet">
 				<form action="#">
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label input">
 						<input class="mdl-textfield__input" type="text" id="name" />
@@ -35,18 +37,34 @@
 							<option value=""></option>
 							<option value="B5_book_stand">B5本(立)</option>
 							<option value="B5_book_put">B5本(置)</option>
+							<option value="postcard_stand">ポストカード(立)</option>
+							<option value="postcard_put">ポストカード(置)</option>
+							<option value="shushu">シュシュ</option>
+							<option value="pierce">ピアス</option>
 							<option value="">Custom(の予定)</option>
 						</select>
 						<label class="mdl-textfield__label" for="itemsize">size</label>
 					</div>
 
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label input">
+						<select class="mdl-textfield__input" name="image" id="itemimage">
+							<option value=""></option>
+							<option value="images/shushu.png">シュシュ</option>
+							<option value="images/card.png">ポストカード</option>
+							<option value="images/pierce.png">ピアス</option>
+						</select>
+						<label class="mdl-textfield__label" for="itemimage">image</label>
+					</div>
+
 				</form>
 			</div>
 
-			<div class="mdl-cell mdl-cell--6-col mdl-cell--6-tablet modal-content">
+			<div class="mdl-cell mdl-cell--6-col mdl-cell--6-tablet">
 
 				<div class="mal-grid">
-					<canvas class="mdl-cell mdl-cell--12-col"></canvas>
+					<div class="mdl-cell mdl-cell--12-col modal-content">
+						プレビュー(予定)
+					</div>
 
 					<div class="mdl-cell mdl-cell--6-col">
 						<div class="auau">
@@ -70,9 +88,9 @@
 			<div class="mdl-layout-spacer"></div>
 			<!-- Navigation. We hide it in small screens. -->
 			<nav class="mdl-navigation mdl-layout--large-screen-only">
-			<a class="mdl-navigation__link" href="#" id="help">Help</a>
+			<!--<a class="mdl-navigation__link" href="#" id="help">Help</a>
 			<a class="mdl-navigation__link" href="#" id="save">Save</a>
-			<!--<a class="mdl-navigation__link" href="#" id="setting">Setting</a>-->
+			<a class="mdl-navigation__link" href="#" id="setting">Setting</a>-->
 			</nav>
 			</div>
 		</header>
@@ -283,7 +301,7 @@
 				<script type="text/javascript" src="javascripts/three/three.min.js"></script>
 				<script type="text/javascript" src="javascripts/three/OrbitControls.js"></script>
 				<script type="text/javascript" src="javascripts/three/TransformControls.js"></script>
-				<script type="text/javascript" src="javascripts/Booth.js"></script>
+				<script type="text/javascript" src="javascripts/booth.js"></script>
 
 		    	</div>
 

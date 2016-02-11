@@ -72,6 +72,7 @@
 
 .modal-content {
 	border: solid 1px #0F0;
+	height: 300px;
 }
 
 form {

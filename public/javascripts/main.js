@@ -1,6 +1,6 @@
 var i_id;
 
-$(window).load(function  () {
+$(window).load(function () {
 
 	//modalの表示
 	$('#itemadd').click(function() {
@@ -18,7 +18,8 @@ $(window).load(function  () {
 	$('#listAdd').click(function() {
 		var name = $(':text[id="name"]').val();
 		var size = $('select[name="size"]').val();
-		itemAdd(name, size);
+		var image = $('select[name="image"]').val();
+		itemAdd(name, size, image);
 		$('#modal').css('display','none');
 	});
 	
@@ -41,43 +42,4 @@ $(window).load(function  () {
 		Change3D();
 	});
 
-	$('#setting').click(function() {
-		items["createtime"] = Date.now();
-		items["updatetime"] = items["createtime"];
-
-		$.ajax({
-			url: 'http://localhost:3000/sudachi/create',
-			type: "POST",
-			cache: false,
-			dataType: "json",
-			contentType: 'application/json',
-			data: JSON.stringify(items),
-			success: function() {
-				console.log('success');
-			},
-			error: function() {
-				console.log('error');
-			}
-		});
-	});
-
-	$('#save').click(function() {
-		items["updatetime"] = Date.now();
-		console.log(items["updatetime"]);
-
-		$.ajax({
-			url: 'http://localhost:3000/sudachi/update',
-			type: "POST",
-			cache: false,
-			dataType: "json",
-			contentType: "application/json", 
-			data: JSON.stringify(items),
-			success: function() {
-				console.log('auau');
-			},
-			error: function() {
-				console.log('error');
-			}
-		});
-	});
 });

@@ -3,7 +3,7 @@
 ブラウザ上で動くよん…
 
 ## Usage
-1.ブラウザ起動させた後、public/index.html かhttp://s14006.github.io/Sudachi/public/index.htmlを開く。  
+1.ブラウザ起動させた後、public/index.html かhttp://s14006.github.io/Sudachi/public/index.html を開く。  
 3.左上の丸っこいボタンクリックし、追加したいアイテムの名前、サイズ、画像を選択後SAVEをクリック
 4.左側に作成されたカードのMENUからadditemを選択肢、右側のブースの中心にアイテムが追加される。
 5.任意の場所にアイテムをドラッグ・アンド・ドロップで移動させる。

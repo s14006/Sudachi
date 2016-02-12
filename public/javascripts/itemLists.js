@@ -10,7 +10,7 @@ function itemAdd (name, size, image) {
 	console.log(itemList);
 }
 
-// アイテムを作る
+// アイテムを作る...
 function itemCreate(name, size, image, num) {
 	this.name = name;
 	this._image = image;

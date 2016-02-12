@@ -29,7 +29,7 @@ $(window).load(function () {
 		if (camera == camera3D) {
 			alert('2Dでやってちょ…(；´∀｀)');
 		} else {
-			addBooth(itemList[i_id]);
+			addToBooth(itemList[i_id]);
 		}
 	});
 

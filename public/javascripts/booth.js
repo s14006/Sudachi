@@ -41,6 +41,7 @@ function createField() {
 	var lGeometry = new THREE.BoxGeometry( 30, 700, 30);
 	var lMaterial = new THREE.MeshLambertMaterial( { color: 0xffaa88 } );
 	
+	//ココらへんももうちょっとどうにか短くできんかなぁ…
 	var leg1 = new THREE.Mesh( lGeometry, lMaterial );
 	leg1.position.set( -350, -350, 150);
 	leg1.castShadow = true;
@@ -79,7 +80,7 @@ function render() {
 	};
 }
 
-function addBooth(item) {
+function addToBooth(item) {
 
 	var x = item.size_x || 100;
 	var y = item.size_y || 100;
@@ -101,7 +102,7 @@ function addBooth(item) {
 			control = new THREE.TransformControls(camera, renderer.domElement);
 			
 			item = new THREE.Mesh(iGeometry, iMaterial);
-			item.position.set(0, table.position.y + 15 + (y / 2), 0); //table.position.y + 15 + (y / 2)
+			item.position.set(0, table.position.y + 15 + (y / 2), 0);
 			item.castShadow = true;
 			group.add(item);
 
